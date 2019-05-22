@@ -1,11 +1,15 @@
 <div class="profile-container">
-	<h3 class="profile-name">
-		Name.
-		<%= user.name %></h3>
+	<h1>User info</h1>
 	<%= attachment_image_tag user,:profile_image,:fill,100,100,format:'jpeg',class:"img-circle pull-left profile-img" %>
-	<h3>introduction</h3>
+	<h3 class="profile-name">
+		Name
+		<%= user. name %>
+	</h3>
+	<h3>introduction
+		<%= user. introduction %>
+	</h3>
 	<% if user.id == current_user.id %>
-	<p> <%= link_to"", edit_user_path(user), %></p>
+	<p><%= link_to"edit", edit_user_path(@user)%></p>
 	<% end %>
 </div>
 
