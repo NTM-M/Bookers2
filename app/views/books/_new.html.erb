@@ -1,3 +1,7 @@
+<% if flash[:notice] %>
+<p><%= flash[:notice] %></p>
+<% end %>
+
 <h1>New book</h1>
 
 <%= form_for(book) do |f| %>
@@ -7,6 +11,6 @@
 <p>Opinion</p>
 <%= f.text_area :body %>
 
-<p><%= f.submit 'Create Boook' %></p>
+<p><%= f.submit 'Create Boook',class: "btn btn-primary btn-lg"%></p>
 
 <% end %>
