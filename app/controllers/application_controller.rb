@@ -10,40 +10,39 @@ class ApplicationController < ActionController::Base
 		root_path
 	end
 
-	def user_logged_in?
-		!! session[:user_id]
-		if session[:user_id]
-		begin
-			@current_user = User.find_by(user_id: session[:user_id])
-		resouce ActiveRcord::RecordNotFound
-			reset_user_session
-		end
-	end
-	return if @current_user
-		flash[:referer] = request.fullpath
-		redirect_to login_index_path
-	end
+	# def user_logged_in?
+	# 	!! session[:user_id]
+	# 	if session[:user_id]
+	# 	begin
+	# 		@current_user = User.find_by(user_id: session[:user_id])
+	# 	resouce ActiveRcord::RecordNotFound
+	# 		reset_user_session
+	# 	end
+	# end
+	# return if @current_user
+	# 	flash[:referer] = request.fullpath
+	# 	redirect_to login_index_path
+	# end
 
-	def reset_user_session
-		session[:user_id] = nill
-		@current_user = nill
-	end
+	# def reset_user_session
+	# 	session[:user_id] = nill
+	# 	@current_user = nill
+	# end
 
 
 	protected
 
 
-	def redirect_url
-		 new_user_session_path
-	end
+	# def redirect_url
+	# 	 new_user_session_path
+	# end
 
 	def configure_permitted_parameters
 	  devise_parameter_sanitizer.permit(:sign_up, keys:[:name,:email])
 	end
-	
-	private
+	# private
 
-	def sing_in_required
-		redirect_to new_user_session_url unless user_signed_in?
-	end
+	# def sing_in_required
+	# 	redirect_to new_user_session_url unless user_signed_in?
+	# end
 end

@@ -41,7 +41,7 @@
 
         <li><%= link_to"Home" ,root_path,class: "glyphicon glyphicon-home active" %></li>
 
-        <li><%= link_to"About" ,about_path,class: "glyphicon glyphicon-link active" %></li>
+        <li><%= link_to"About",about_path,class: "glyphicon glyphicon-link active" %></li>
 
         <li><%= link_to"sign up" ,new_user_registration_path,class: "glyphicon glyphicon-edit active" %></li>
 
@@ -58,7 +58,7 @@
       </p>
       <p class="alert"><%= alert %></p>
     </div>
-    <footer class="copy">CopyRight Infratop.inc</footer>
-   <%= yield %>
+     <%= yield %>
+    <footer>CopyRight Infratop.inc</footer>
   </body>
 </html>

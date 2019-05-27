@@ -1,7 +1,10 @@
 class BooksController < ApplicationController
 
-	before_action :authenticate_user!, except: :top
+	before_action :authenticate_user!, except: [:top, :about]
 	before_action :correct_book, only: [:edit, :update]
+
+  def about
+  end
 
   def show
   	@book = Book.find(params[:id])
@@ -52,12 +55,6 @@ class BooksController < ApplicationController
   	redirect_to books_path
   end
 
-  def top
-  end
-
-  def about
-  end
-
   private
 
   def book_params
@@ -68,6 +65,7 @@ class BooksController < ApplicationController
   	book = Book.find(params[:id])
   	if current_user != book.user
   		redirect_to books_path
+    else
   	end
   end
 end
